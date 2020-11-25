@@ -111,7 +111,3 @@ T is {self.T}
         '''
         print(values)
 
-
-Q = SUVAT(V=10,U=0,A=9.8)
-t = Q.Find("t")
-print(t)
