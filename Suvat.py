@@ -81,13 +81,3 @@ Find logic              GETTING THERE
                 return round(self.v_squared_equals_u_squared_plus_2as(),1)
             elif (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
                 return round(self.v_equals_u_plus_at(),1)
-
-
-Q1 = SUVAT(U = 10, T = 20, A = 9.8)
-print(Q1.Find("v"))
-print(Q1.V)
-
-Lol = None
-
-if type(Lol) is float or type(Lol) is int:
-    print("cool")
