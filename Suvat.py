@@ -81,6 +81,8 @@ Find logic              GETTING THERE
                 return round(self.v_squared_equals_u_squared_plus_2as(),1)
             elif (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
                 return round(self.v_equals_u_plus_at(),1)
+            else :
+                return "ERROR: EITHER SUPPORT IS YET TO BE ADDED OR WRONG VARIABLES ADDED"
 
         elif (find.lower() == 's') and (self.S is None) :
             if (type(self.U) is int or type(self.U) is float) and (type(self.V) is int or type(self.V) is float) and (type(self.T) is int or type(self.T) is float) :
@@ -89,7 +91,14 @@ Find logic              GETTING THERE
                 return round(self.s_equals_ut_plus_half_at_squared(),1)
             elif (type(self.V) is int or type(self.V) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
                 return round(self.s_equals_vt_minus_half_at_squared(),1)
-                
+            else :
+                return "ERROR: EITHER SUPPORT IS YET TO BE ADDED OR WRONG VARIABLES ADDED"
+        elif (find.lower() == 't') and (self.T is None) :
+            if (type(self.V) is int or type(self.V) is float) and (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) :
+                return round(self.v_equals_u_plus_at(),2)
+
+
+
 
 
     def print_values(self) :
@@ -101,3 +110,8 @@ A is {self.A}
 T is {self.T}
         '''
         print(values)
+
+
+Q = SUVAT(V=10,U=0,A=9.8)
+t = Q.Find("t")
+print(t)
