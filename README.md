@@ -11,7 +11,7 @@ Simple SUVAT solver made in python to improve my own understanding of the topic
 
 ### Installing
 
-* Cba to upload to Pypi at this moment in tim
+* Cba to upload to Pypi at this moment in time
 * Download python file and place it in same directory as file you want to import to
 
 ### Executing program
