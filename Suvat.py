@@ -73,7 +73,7 @@ Find logic              GETTING THERE
     def s_equals_half_u_plus_v_t(self) :
         if (self.S is None) and (type(self.U) is int or type(self.U) is float) and (type(self.V) is int or type(self.V) is float) and (type(self.T) is int or type(self.T) is float) :
             self.S = 0.5 * (self.U + self.V) * self.T
-            return self.T
+            return self.S
 
     def Find(self,find) :
         if (find.lower() == 'v')  and (self.V is None) :
@@ -81,6 +81,16 @@ Find logic              GETTING THERE
                 return round(self.v_squared_equals_u_squared_plus_2as(),1)
             elif (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
                 return round(self.v_equals_u_plus_at(),1)
+
+        elif (find.lower() == 's') and (self.S is None) :
+            if (type(self.U) is int or type(self.U) is float) and (type(self.V) is int or type(self.V) is float) and (type(self.T) is int or type(self.T) is float) :
+                return round(self.s_equals_half_u_plus_v_t(),1)
+            elif (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
+                return round(self.s_equals_ut_plus_half_at_squared(),1)
+            elif (type(self.V) is int or type(self.V) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
+                return round(self.s_equals_vt_minus_half_at_squared(),1)
+                
+
 
     def print_values(self) :
         values = f'''
