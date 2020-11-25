@@ -81,3 +81,13 @@ Find logic              GETTING THERE
                 return round(self.v_squared_equals_u_squared_plus_2as(),1)
             elif (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
                 return round(self.v_equals_u_plus_at(),1)
+
+    def print_values(self) :
+        values = f'''
+S is {self.S}
+U is {self.U}
+V is {self.V}
+A is {self.A}
+T is {self.T}
+        '''
+        print(values)
