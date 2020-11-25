@@ -51,8 +51,9 @@ Thomas Moldon
 ## Version History
 * 0.1
     * Initial Release
+* 0.2
+    * Completed Find() function
 
 ## License
 
 This project is licensed under the [MIT] License - see the LICENSE.md file for details
-

@@ -80,7 +80,7 @@ Find logic              GETTING THERE
             if (type(self.U) is int or type(self.U) is float) and (type(self.S) is int or type(self.S) is float) and (type(self.A) is int or type(self.A) is float) :
                 return round(self.v_squared_equals_u_squared_plus_2as(),1)
             elif (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
-                return round(self.v_equals_u_plus_at(),1)
+                return round(self.v_equals_u_plus_at(),2)
             else :
                 return "ERROR: EITHER SUPPORT IS YET TO BE ADDED OR WRONG VARIABLES ADDED"
 
@@ -88,14 +88,40 @@ Find logic              GETTING THERE
             if (type(self.U) is int or type(self.U) is float) and (type(self.V) is int or type(self.V) is float) and (type(self.T) is int or type(self.T) is float) :
                 return round(self.s_equals_half_u_plus_v_t(),1)
             elif (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
-                return round(self.s_equals_ut_plus_half_at_squared(),1)
+                return round(self.s_equals_ut_plus_half_at_squared(),2)
             elif (type(self.V) is int or type(self.V) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
-                return round(self.s_equals_vt_minus_half_at_squared(),1)
+                return round(self.s_equals_vt_minus_half_at_squared(),2)
             else :
                 return "ERROR: EITHER SUPPORT IS YET TO BE ADDED OR WRONG VARIABLES ADDED"
+
         elif (find.lower() == 't') and (self.T is None) :
             if (type(self.V) is int or type(self.V) is float) and (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) :
                 return round(self.v_equals_u_plus_at(),2)
+            else :
+                return "ERROR: EITHER SUPPORT IS YET TO BE ADDED OR WRONG VARIABLES ADDED"
+
+        elif (find.lower() == 'u') and (self.U is None) :
+            if (type(self.V) is int or type(self.V) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.T) is int or type(self.T) is float) :
+                return round(self.v_equals_u_plus_at(),2)
+            elif (type(self.V) is int or type(self.V) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.S) is int or type(self.S) is float) :
+                if type(self.v_squared_equals_u_squared_plus_2as()) is complex:
+                    raise TypeError("Result is a complex number")
+                else:
+                    return round(self.v_squared_equals_u_squared_plus_2as(),2)
+            else:
+                return "ERROR: EITHER SUPPORT IS YET TO BE ADDED OR WRONG VARIABLES ADDED"
+
+        elif (find.lower() == 'a') and (self.A is None) :
+            if (type(self.V) is int or type(self.V) is float) and (type(self.U) is int or type(self.U) is float) and (type(self.T) is int or type(self.T) is float) :
+                return round(self.v_equals_u_plus_at(),2)
+            elif (type(self.V) is int or type(self.V) is float) and (type(self.U) is int or type(self.U) is float) and (type(self.S) is int or type(self.S) is float) :
+                return round(self.v_squared_equals_u_squared_plus_2as(),2)
+            else:
+                return "ERROR: EITHER SUPPORT IS YET TO BE ADDED OR WRONG VARIABLES ADDED"
+
+        else:
+            return "ERROR: YOU DID NOT SELECT A VALID VARIABLE TO FIND"
+
 
 
 
@@ -110,4 +136,3 @@ A is {self.A}
 T is {self.T}
         '''
         print(values)
-
