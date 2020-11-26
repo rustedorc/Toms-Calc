@@ -101,8 +101,10 @@ class SomethingWindow(Window):
 
         questions = SUVAT(S=num_S,U=num_U,V=num_V,A=num_A,T=num_T)
         lst = ["S","U","V","A","T"]
-        for i in range(len(lst)):
-            print(questions.Find(lst[i]))
+        # for i in range(len(lst)):
+        #     print(questions.Find(lst[i]))
+
+        return for i in range(len(lst)) : questions.Find(lst[i])
 
 
 
