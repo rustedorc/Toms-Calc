@@ -1,3 +1,4 @@
+
 class SUVAT :
     '''
 v = u + at              DONE

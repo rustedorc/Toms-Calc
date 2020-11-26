@@ -1,6 +1,8 @@
-# SUVAT
+# SUVAT (GUI Version)
 
 Simple SUVAT solver made in python to improve my own understanding of the topic
+
+This version is very much unfinished!
 
 ## Getting Started
 
