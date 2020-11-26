@@ -91,7 +91,18 @@ class SomethingWindow(Window):
             try:
                 self.temp_dic[k] = float(self.temp_dic[k])
             except ValueError :
-                del self.temp_dic[k]
+                self.temp_dic[k] = None
+
+        num_S = self.temp_dic.get("S")
+        num_U = self.temp_dic.get("U")
+        num_V = self.temp_dic.get("V")
+        num_A = self.temp_dic.get("A")
+        num_T = self.temp_dic.get("T")
+
+        questions = SUVAT(S=num_S,U=num_U,V=num_V,A=num_A,T=num_T)
+        lst = ["S","U","V","A","T"]
+        for i in range(len(lst)):
+            print(questions.Find(lst[i]))
 
 
 
