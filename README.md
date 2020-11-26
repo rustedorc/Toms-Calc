@@ -9,6 +9,7 @@ This version is very much unfinished!
 ### Dependencies
 
 * Python 3
+* Tkinter
 * Any OS
 
 ### Installing
