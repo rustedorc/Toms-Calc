@@ -71,8 +71,28 @@ class Window(ttk.Frame):
 
 class SomethingWindow(Window):
     """ New popup window """
-    def do_suvat(self) :
-        pass
+    def grab(self) :
+        self.S_temp = self.input_S.get()
+        self.U_temp = self.input_U.get()
+        self.V_temp = self.input_V.get()
+        self.A_temp = self.input_A.get()
+        self.T_temp = self.input_T.get()
+
+        self.temp_dic = {
+        'S' : self.S_temp,
+        'U' : self.U_temp,
+        'V' : self.V_temp,
+        'A' : self.A_temp,
+        'T' : self.T_temp,
+        }
+
+        key_copy = tuple(self.temp_dic.keys())
+        for k in key_copy :
+            try:
+                self.temp_dic[k] = float(self.temp_dic[k])
+            except ValueError :
+                del self.temp_dic[k]
+
 
 
     def init_gui(self):
@@ -86,28 +106,33 @@ class SomethingWindow(Window):
         self.contentframe = ttk.Frame(self.parent, relief="sunken")
 
         #S
+        self.S_var = tkinter.StringVar()
         self.label_S = ttk.Label(self.contentframe, text='Enter S')
-        self.input_S = ttk.Entry(self.contentframe, width=30, validate='focusout', validatecommand=(self.validate_notempty))
+        self.input_S = ttk.Entry(self.contentframe, width=30, validate='focusout', textvariable=self.S_var) #validatecommand=(self.validate_notempty)
 
         #U
+        self.U_var = tkinter.StringVar()
         self.label_U = ttk.Label(self.contentframe, text='Enter U')
-        self.input_U = ttk.Entry(self.contentframe, width=30, validate='focusout', validatecommand=(self.validate_notempty))
+        self.input_U = ttk.Entry(self.contentframe, width=30, validate='focusout',textvariable=self.U_var) #validatecommand=(self.validate_notempty)
 
         #V
+        self.V_var = tkinter.StringVar()
         self.label_V = ttk.Label(self.contentframe, text='Enter V')
-        self.input_V = ttk.Entry(self.contentframe, width=30, validate='focusout', validatecommand=(self.validate_notempty))
+        self.input_V = ttk.Entry(self.contentframe, width=30, validate='focusout',textvariable=self.V_var) #validatecommand=(self.validate_notempty)
 
         #A
+        self.A_var = tkinter.StringVar()
         self.label_A = ttk.Label(self.contentframe, text='Enter A')
-        self.input_A = ttk.Entry(self.contentframe, width=30, validate='focusout', validatecommand=(self.validate_notempty))
+        self.input_A = ttk.Entry(self.contentframe, width=30, validate='focusout',textvariable=self.A_var) #validatecommand=(self.validate_notempty)
 
         #T
-        self.label_test = ttk.Label(self.contentframe, text='Enter T')
-        self.input_test = ttk.Entry(self.contentframe, width=30, validate='focusout', validatecommand=(self.validate_notempty))
+        self.T_var = tkinter.StringVar()
+        self.label_T = ttk.Label(self.contentframe, text='Enter T')
+        self.input_T = ttk.Entry(self.contentframe, width=30, validate='focusout',textvariable=self.T_var) #validatecommand=(self.validate_notempty)
 
 
         #input button
-        self.btn_input = ttk.Button(self.parent, text="Enter", command=self.do_suvat())
+        self.btn_input = ttk.Button(self.parent, text="Enter", command=self.grab)
 
         # Layout
         self.label_title.grid(row=0, column=0, columnspan=2, sticky='nsew')
@@ -157,7 +182,7 @@ class GUI(ttk.Frame):
         self.menubar = Menubar(self.root)
 
         # Create Widgets
-        self.btn = ttk.Button(self, text='Open Window', command=self.openwindow)
+        self.btn = ttk.Button(self, text='Enter Values', command=self.openwindow)
 
         # Layout using grid
         self.btn.grid(row=0, column=0, sticky='ew')
