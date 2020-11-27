@@ -53,6 +53,8 @@ Thomas Moldon
     * Initial Release
 * 0.2
     * Completed Find() function
+* 0.3
+    * Fully completed 'Suvat.py'
 
 ## License
 
