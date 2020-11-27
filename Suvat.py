@@ -121,12 +121,7 @@ Find logic              GETTING THERE
                 return "ERROR: EITHER SUPPORT IS YET TO BE ADDED OR WRONG VARIABLES ADDED"
 
         else:
-            return "ERROR: YOU DID NOT SELECT A VALID VARIABLE TO FIND"
-
-
-
-
-
+            raise ValueError("You entered a value you already have")
 
     def print_values(self) :
         values = f'''

@@ -101,10 +101,10 @@ class SomethingWindow(Window):
 
         questions = SUVAT(S=num_S,U=num_U,V=num_V,A=num_A,T=num_T)
         lst = ["S","U","V","A","T"]
-        # for i in range(len(lst)):
-        #     print(questions.Find(lst[i]))
+        for i in range(len(lst)):
+            print(questions.Find(lst[i]))
 
-        return for i in range(len(lst)) : questions.Find(lst[i])
+        # return for i in range(len(lst)) : questions.Find(lst[i])
 
 
 
@@ -182,7 +182,7 @@ class GUI(ttk.Frame):
         SomethingWindow(self.new_win)
 
     def init_gui(self):
-        self.root.title('Test GUI')
+        self.root.title('SUVAT Calculator')
         self.root.geometry("600x400")
         self.grid(column=0, row=0, sticky='nsew')
         self.grid_columnconfigure(0, weight=1) # Allows column to stretch upon resizing
