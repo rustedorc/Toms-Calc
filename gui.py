@@ -108,11 +108,8 @@ class SomethingWindow(Window):
         global questions
         questions = SUVAT(S=num_S,U=num_U,V=num_V,A=num_A,T=num_T)
 
-
-
-        lst = ["S","U","V","A","T"]
-        for i in range(len(lst)):
-            print(questions.Find(lst[i]))
+        questions.Find()
+        
         global S_var
         S_var = questions.S
 

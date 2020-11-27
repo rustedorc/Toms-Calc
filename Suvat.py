@@ -67,7 +67,7 @@ made by Tom Moldon
             self.A = (2 * (self.S - (self.U * self.T))) / (self.T ** 2)
             return self.A
         elif (self.T is None) and (type(self.S) is int or type(self.S) is float) and (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) :
-            self.T = sqrt((2 * self.A * self.S) + (self.U ** 2) - self.U) / self.A
+            self.T = sqrt(abs((2 * self.A * self.S) + (self.U ** 2) - self.U)) / self.A
             return self.T
         else:
             pass
@@ -83,7 +83,7 @@ made by Tom Moldon
             self.A = (2 * ((self.V * self.T) - self.S)) / (self.T ** 2)
             return self.A
         elif (self.T is None) and (type(self.V) is int or type(self.V) is float) and (type(self.S) is int or type(self.S) is float) and (type(self.A) is int or type(self.A) is float) :
-            self.T = (self.V - sqrt((self.V ** 2) - (2 * self.A * self.S)))
+            self.T = (self.V - sqrt((abs(self.V ** 2) - (2 * self.A * self.S))))
             return self.T
         else:
             pass
