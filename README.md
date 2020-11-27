@@ -24,9 +24,9 @@ from Suvat import SUVAT
 ```
 Question1 = SUVAT(U=20,T=70,A=9.8)
 ```
-* Use the 'Find' function to automatically solve:
+* Use the 'Find' function to automatically solve all unknowns:
 ```
-Question1.Find("V")
+Question1.Find()
 ```
 * You can also manually enter the equations using the following functions:
 ```
@@ -36,8 +36,9 @@ instance_name.s_equals_ut_plus_half_at_squared()
 instance_name.s_equals_vt_minus_half_at_squared()
 instance_name.s_equals_half_u_plus_v_t()
 ```
--Please note that only the first and second functions have functionality to be rearanged-
 ## Help
+
+You must a mininum of 3 known values for this to find the two unknowns
 
 If you want any help or want to help improve this code feel free to message me.
 
