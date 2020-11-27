@@ -3,6 +3,13 @@ from tkinter import ttk
 import abc
 from Suvat import SUVAT
 import webbrowser
+import time
+questions = None
+S_var = None
+U_var = None
+V_var = None
+A_var = None
+T_var = None
 
 class Menubar(ttk.Frame):
     """Builds a menu bar for the top of the main window"""
@@ -98,11 +105,28 @@ class SomethingWindow(Window):
         num_V = self.temp_dic.get("V")
         num_A = self.temp_dic.get("A")
         num_T = self.temp_dic.get("T")
-
+        global questions
         questions = SUVAT(S=num_S,U=num_U,V=num_V,A=num_A,T=num_T)
+
+
+
         lst = ["S","U","V","A","T"]
         for i in range(len(lst)):
             print(questions.Find(lst[i]))
+        global S_var
+        S_var = questions.S
+
+        global U_var
+        U_var = questions.U
+
+        global V_var
+        V_var = questions.V
+
+        global A_var
+        A_var = questions.A
+
+        global T_var
+        T_var = questions.T
 
         # return for i in range(len(lst)) : questions.Find(lst[i])
 
@@ -173,9 +197,30 @@ class SomethingWindow(Window):
 class GUI(ttk.Frame):
     """Main GUI class"""
     def __init__(self, parent, *args, **kwargs):
-        ttk.Frame.__init__(self, parent, *args, **kwargs)
+        ttk.Frame.__init__(self,parent, *args, **kwargs)
         self.root = parent
         self.init_gui()
+        self.instance = kwargs.get("instance")
+
+
+    def try_display(self) : #trying to make label dynamicallhy update
+        try:
+            return self.instance.S
+        except:
+            return "Undefined"
+
+    def update_status(self):
+        current_status = self.S_label["text"]
+
+        if type(current_status) is not float :
+            try:
+                current_status = self.instance.S
+            except:
+                pass
+            finally:
+                self.S_label["text"] = current_status
+                self.root.after(1000,self.update_status)
+
 
     def openwindow(self):
         self.new_win = tkinter.Toplevel(self.root) # Set parent
@@ -196,9 +241,11 @@ class GUI(ttk.Frame):
 
         # Create Widgets
         self.btn = ttk.Button(self, text='Enter Values', command=self.openwindow)
+        self.S_label = ttk.Label(self,text=f"S = {str(S_var)}")
 
         # Layout using grid
         self.btn.grid(row=0, column=0, sticky='ew')
+        self.S_label.grid(row=0, column = 0, sticky="n")
 
         # Padding
         for child in self.winfo_children():
