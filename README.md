@@ -16,6 +16,19 @@ Simple SUVAT solver made in python to improve my own understanding of the topic
 
 ### Executing program
 
+#### Via GUI
+
+* Run gui.py in the console:
+```
+python3 GUI.py
+```
+OR
+```
+py gui.py
+```
+
+#### Via import
+
 * Type the following command into your python project or console:
 ```
 from Suvat import SUVAT
@@ -38,8 +51,7 @@ instance_name.s_equals_half_u_plus_v_t()
 ```
 ## Help
 
-You must a mininum of 3 known values for this to find the two unknowns
-
+You must a minimum of 3 known values for this to find the two unknowns
 If you want any help or want to help improve this code feel free to message me.
 
 ## Authors
@@ -56,6 +68,8 @@ Thomas Moldon
     * Completed Find() function
 * 0.3
     * Fully completed 'Suvat.py'
+* 0.4
+    * Implemented GUI
 
 ## License
 
