@@ -19,13 +19,13 @@ Simple Calculator app made in tkinter to improve my understanding of topics
 
 #### Via GUI
 
-* Run gui.py in the console:
+* Run run.py in the console:
 ```
-python3 GUI.py
+python3 run.py
 ```
 OR
 ```
-py gui.py
+py run.py
 ```
 
 #### Via import

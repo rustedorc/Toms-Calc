@@ -151,7 +151,7 @@ class SuvatWindow(Window):
         self.input_T.grid(row=9, column=0, sticky='w')
 
         self.label_title.grid(row=0, column=0, columnspan=2, sticky='nsew')
-        
+
         for child in self.parent.winfo_children():
             child.grid_configure(padx=10, pady=5)
         for child in self.contentframe.winfo_children():
@@ -252,10 +252,3 @@ class GUI(ttk.Frame):
         # Padding
         for child in self.winfo_children():
             child.grid_configure(padx=10, pady=5)
-
-
-
-if __name__ == '__main__':
-    root = tkinter.Tk()
-    GUI(root)
-    root.mainloop()
