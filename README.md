@@ -1,4 +1,4 @@
-# Thomas Calc
+# Toms-Calc
 
 Simple Calculator app made in tkinter to improve my understanding of topics
 
