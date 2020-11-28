@@ -52,7 +52,6 @@ instance_name.s_equals_half_u_plus_v_t()
 ## Help
 
 You must a minimum of 3 known values for this to find the two unknowns
-
 If you want any help or want to help improve this code feel free to message me.
 
 ## Authors
