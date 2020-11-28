@@ -4,6 +4,8 @@ import abc
 from Suvat import SUVAT
 import webbrowser
 import time
+from threading import Thread
+
 questions = None
 S_var = None
 U_var = None
@@ -78,7 +80,8 @@ class Window(ttk.Frame):
 
 class SomethingWindow(Window):
     """ New popup window """
-    def grab(self) :
+    def button_press(self) :
+        print("Test 1")
         self.S_temp = self.input_S.get()
         self.U_temp = self.input_U.get()
         self.V_temp = self.input_V.get()
@@ -93,6 +96,7 @@ class SomethingWindow(Window):
         'T' : self.T_temp,
         }
 
+        print("TEST 2")
         key_copy = tuple(self.temp_dic.keys())
         for k in key_copy :
             try:
@@ -107,9 +111,9 @@ class SomethingWindow(Window):
         num_T = self.temp_dic.get("T")
         global questions
         questions = SUVAT(S=num_S,U=num_U,V=num_V,A=num_A,T=num_T)
-
+        print("TEST 3")
         questions.Find()
-        
+
         global S_var
         S_var = questions.S
 
@@ -125,7 +129,24 @@ class SomethingWindow(Window):
         global T_var
         T_var = questions.T
 
-        # return for i in range(len(lst)) : questions.Find(lst[i])
+        print("TEST 4")
+        self.input_S.destroy()
+        self.input_U.destroy()
+        self.input_V.destroy()
+        self.input_A.destroy()
+        self.input_T.destroy()
+
+        self.input_S = ttk.Label(self.contentframe, text=S_var) #validatecommand=(self.validate_notempty)
+        self.input_U = ttk.Label(self.contentframe, text=U_var)
+        self.input_V = ttk.Label(self.contentframe, text=V_var)
+        self.input_A = ttk.Label(self.contentframe, text=A_var)
+        self.input_T = ttk.Label(self.contentframe, text=T_var)
+        self.input_S.grid(row=1, column=0, sticky='w')
+        self.input_U.grid(row=2, column=0, sticky='w')
+        self.input_V.grid(row=3, column=0, sticky='w')
+        self.input_A.grid(row=4, column=0, sticky='w')
+        self.input_T.grid(row=5, column=0, sticky='w')
+
 
 
 
@@ -166,7 +187,7 @@ class SomethingWindow(Window):
 
 
         #input button
-        self.btn_input = ttk.Button(self.parent, text="Enter", command=self.grab)
+        self.btn_input = ttk.Button(self.parent, text="Enter", command=self.button_press)
 
         # Layout
         self.label_title.grid(row=0, column=0, columnspan=2, sticky='nsew')
@@ -206,17 +227,17 @@ class GUI(ttk.Frame):
         except:
             return "Undefined"
 
-    def update_status(self):
-        current_status = self.S_label["text"]
-
-        if type(current_status) is not float :
-            try:
-                current_status = self.instance.S
-            except:
-                pass
-            finally:
-                self.S_label["text"] = current_status
-                self.root.after(1000,self.update_status)
+    # def update_status(self):
+    #     current_status = self.S_label["text"]
+    #
+    #     if current_status is None:
+    #         try:
+    #             current_status = self.instance.S
+    #         except:
+    #             pass
+    #         finally:
+    #             self.S_label["text"] = current_status
+    #             self.root.after(1000,self.update_status)
 
 
     def openwindow(self):
@@ -224,6 +245,7 @@ class GUI(ttk.Frame):
         SomethingWindow(self.new_win)
 
     def init_gui(self):
+
         self.root.title('SUVAT Calculator')
         self.root.geometry("600x400")
         self.grid(column=0, row=0, sticky='nsew')
