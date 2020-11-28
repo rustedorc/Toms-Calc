@@ -1,9 +1,14 @@
 from math import sqrt
 class SUVAT :
     '''
-Basic SUVAT class created using lots of ugly selection
+v = u + at              DONE
+v**2 = u**2 + 2as       DONE
+s = ut + (1/2)at**2     DONE KINDA
+s = vt - (1/2)at**2     DONE KINDA
+s = (1/2)(u + v)t       DONE KINDA
 
-made by Tom Moldon
+Find logic              GETTING THERE
+
     '''
 
     def __init__(self, S=None, U=None, V=None, A=None, T=None) :
@@ -37,12 +42,12 @@ made by Tom Moldon
     def v_squared_equals_u_squared_plus_2as(self) :
         if (self.V is None) and (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.S) is int or type(self.S) is float) :
             V_squared = (self.U ** 2) + (2 * self.A + self.S)
-            self.V = sqrt(V_squared)
+            self.V = sqrt(abs(V_squared))
             return self.V
 
         elif (self.U is None) and (type(self.V) is int or type(self.V) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.S) is int or type(self.S) is float) :
             U_squared = (self.V ** 2) - (2 * self.A * self.S)
-            self.U = sqrt(U_squared)
+            self.U = sqrt(abs(U_squared))
             return self.U
 
         elif (self.S is None) and (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.V) is int or type(self.V) is float) :
@@ -83,7 +88,7 @@ made by Tom Moldon
             self.A = (2 * ((self.V * self.T) - self.S)) / (self.T ** 2)
             return self.A
         elif (self.T is None) and (type(self.V) is int or type(self.V) is float) and (type(self.S) is int or type(self.S) is float) and (type(self.A) is int or type(self.A) is float) :
-            self.T = (self.V - sqrt((abs(self.V ** 2) - (2 * self.A * self.S))))
+            self.T = (self.V - sqrt(abs((self.V ** 2) - (2 * self.A * self.S))))
             return self.T
         else:
             pass
