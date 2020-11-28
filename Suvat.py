@@ -42,12 +42,12 @@ Find logic              GETTING THERE
     def v_squared_equals_u_squared_plus_2as(self) :
         if (self.V is None) and (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.S) is int or type(self.S) is float) :
             V_squared = (self.U ** 2) + (2 * self.A + self.S)
-            self.V = sqrt(V_squared)
+            self.V = sqrt(abs(V_squared))
             return self.V
 
         elif (self.U is None) and (type(self.V) is int or type(self.V) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.S) is int or type(self.S) is float) :
             U_squared = (self.V ** 2) - (2 * self.A * self.S)
-            self.U = sqrt(U_squared)
+            self.U = sqrt(abs(U_squared))
             return self.U
 
         elif (self.S is None) and (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) and (type(self.V) is int or type(self.V) is float) :
@@ -72,7 +72,7 @@ Find logic              GETTING THERE
             self.A = (2 * (self.S - (self.U * self.T))) / (self.T ** 2)
             return self.A
         elif (self.T is None) and (type(self.S) is int or type(self.S) is float) and (type(self.U) is int or type(self.U) is float) and (type(self.A) is int or type(self.A) is float) :
-            self.T = sqrt((2 * self.A * self.S) + (self.U ** 2) - self.U) / self.A
+            self.T = sqrt(abs((2 * self.A * self.S) + (self.U ** 2) - self.U)) / self.A
             return self.T
         else:
             pass
@@ -88,7 +88,7 @@ Find logic              GETTING THERE
             self.A = (2 * ((self.V * self.T) - self.S)) / (self.T ** 2)
             return self.A
         elif (self.T is None) and (type(self.V) is int or type(self.V) is float) and (type(self.S) is int or type(self.S) is float) and (type(self.A) is int or type(self.A) is float) :
-            self.T = (self.V - sqrt((self.V ** 2) - (2 * self.A * self.S)))
+            self.T = (self.V - sqrt(abs((self.V ** 2) - (2 * self.A * self.S))))
             return self.T
         else:
             pass
@@ -207,8 +207,3 @@ A is {self.A}
 T is {self.T}
         '''
         print(values)
-
-d=SUVAT(S=21.0,U=1.0,V=10.0)
-print(d.S)
-d.Find()
-print(d.A)
