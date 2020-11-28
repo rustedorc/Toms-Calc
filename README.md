@@ -1,6 +1,6 @@
-# SUVAT
+# Thomas Calc
 
-Simple SUVAT solver made in python to improve my own understanding of the topic
+Simple Calculator app made in tkinter to improve my understanding of topics
 
 ## Getting Started
 
@@ -8,11 +8,12 @@ Simple SUVAT solver made in python to improve my own understanding of the topic
 
 * Python 3
 * Any OS
+* Tkinter
+* Webbrowser
 
 ### Installing
 
-* Cba to upload to Pypi at this moment in time
-* Download python file and place it in same directory as file you want to import to
+* Clone the files to your computer
 
 ### Executing program
 
@@ -28,6 +29,8 @@ py gui.py
 ```
 
 #### Via import
+
+##### SUVAT
 
 * Type the following command into your python project or console:
 ```
@@ -51,13 +54,12 @@ instance_name.s_equals_half_u_plus_v_t()
 ```
 ## Help
 
-You must a minimum of 3 known values for this to find the two unknowns
 If you want any help or want to help improve this code feel free to message me.
 
+### SUVAT
+You must a minimum of 3 known values for this to find the two unknowns
+
 ## Authors
-
-Contributors names and contact info
-
 Thomas Moldon
 [My website](https://moldon.me)
 
