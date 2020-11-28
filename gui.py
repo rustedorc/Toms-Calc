@@ -78,10 +78,9 @@ class Window(ttk.Frame):
         '''Closes window'''
         self.parent.destroy()
 
-class SomethingWindow(Window):
+class SuvatWindow(Window):
     """ New popup window """
     def button_press(self) :
-        print("Test 1")
         self.S_temp = self.input_S.get()
         self.U_temp = self.input_U.get()
         self.V_temp = self.input_V.get()
@@ -96,7 +95,6 @@ class SomethingWindow(Window):
         'T' : self.T_temp,
         }
 
-        print("TEST 2")
         key_copy = tuple(self.temp_dic.keys())
         for k in key_copy :
             try:
@@ -111,7 +109,6 @@ class SomethingWindow(Window):
         num_T = self.temp_dic.get("T")
         global questions
         questions = SUVAT(S=num_S,U=num_U,V=num_V,A=num_A,T=num_T)
-        print("TEST 3")
         questions.Find()
 
         global S_var
@@ -129,31 +126,49 @@ class SomethingWindow(Window):
         global T_var
         T_var = questions.T
 
-        print("TEST 4")
         self.input_S.destroy()
         self.input_U.destroy()
         self.input_V.destroy()
         self.input_A.destroy()
         self.input_T.destroy()
+        self.label_S.destroy()
+        self.label_U.destroy()
+        self.label_V.destroy()
+        self.label_A.destroy()
+        self.label_T.destroy()
 
-        self.input_S = ttk.Label(self.contentframe, text=S_var) #validatecommand=(self.validate_notempty)
-        self.input_U = ttk.Label(self.contentframe, text=U_var)
-        self.input_V = ttk.Label(self.contentframe, text=V_var)
-        self.input_A = ttk.Label(self.contentframe, text=A_var)
-        self.input_T = ttk.Label(self.contentframe, text=T_var)
+        self.label_title = ttk.Label(self.parent, text="SUVAT Values:")
+
+        self.input_S = ttk.Label(self.contentframe, text=f"S is: {round(S_var,2)}") #validatecommand=(self.validate_notempty)
+        self.input_U = ttk.Label(self.contentframe, text=f"U is: {round(U_var,2)}")
+        self.input_V = ttk.Label(self.contentframe, text=f"V is: {round(V_var,2)}")
+        self.input_A = ttk.Label(self.contentframe, text=f"A is: {round(A_var,2)}")
+        self.input_T = ttk.Label(self.contentframe, text=f"T is: {round(T_var,2)}")
         self.input_S.grid(row=1, column=0, sticky='w')
-        self.input_U.grid(row=2, column=0, sticky='w')
-        self.input_V.grid(row=3, column=0, sticky='w')
-        self.input_A.grid(row=4, column=0, sticky='w')
-        self.input_T.grid(row=5, column=0, sticky='w')
+        self.input_U.grid(row=3, column=0, sticky='w')
+        self.input_V.grid(row=5, column=0, sticky='w')
+        self.input_A.grid(row=7, column=0, sticky='w')
+        self.input_T.grid(row=9, column=0, sticky='w')
 
+        self.label_title.grid(row=0, column=0, columnspan=2, sticky='nsew')
+        
+        for child in self.parent.winfo_children():
+            child.grid_configure(padx=10, pady=5)
+        for child in self.contentframe.winfo_children():
+            child.grid_configure(padx=5, pady=2)
 
+        self.btn_input.destroy()
+        self.btn_input = ttk.Button(self, text='Close', command=self.close)
+        self.btn_input.grid(row=2, column=0, sticky='e')
 
+    def close(self) :
+        self.parent.quit()
 
     def init_gui(self):
         self.parent.title("SUVAT Calculator")
         self.parent.columnconfigure(0, weight=1)
         self.parent.rowconfigure(4, weight=1)
+        self.parent.geometry("300x400")
 
         # Create Widgets
 
@@ -203,15 +218,6 @@ class SomethingWindow(Window):
         for child in self.contentframe.winfo_children():
             child.grid_configure(padx=5, pady=2)
 
-    def do_something(self):
-        '''Does something'''
-        text = self.input_test.get().strip()
-        if text:
-            # Do things with text
-            self.close_win()
-        else:
-            print("Error: But for real though, field must not be empty.")
-
 class GUI(ttk.Frame):
     """Main GUI class"""
     def __init__(self, parent, *args, **kwargs):
@@ -221,32 +227,13 @@ class GUI(ttk.Frame):
         self.instance = kwargs.get("instance")
 
 
-    def try_display(self) : #trying to make label dynamicallhy update
-        try:
-            return self.instance.S
-        except:
-            return "Undefined"
-
-    # def update_status(self):
-    #     current_status = self.S_label["text"]
-    #
-    #     if current_status is None:
-    #         try:
-    #             current_status = self.instance.S
-    #         except:
-    #             pass
-    #         finally:
-    #             self.S_label["text"] = current_status
-    #             self.root.after(1000,self.update_status)
-
-
     def openwindow(self):
         self.new_win = tkinter.Toplevel(self.root) # Set parent
-        SomethingWindow(self.new_win)
+        SuvatWindow(self.new_win)
 
     def init_gui(self):
 
-        self.root.title('SUVAT Calculator')
+        self.root.title('Toms Calculator')
         self.root.geometry("600x400")
         self.grid(column=0, row=0, sticky='nsew')
         self.grid_columnconfigure(0, weight=1) # Allows column to stretch upon resizing
@@ -259,13 +246,9 @@ class GUI(ttk.Frame):
         self.menubar = Menubar(self.root)
 
         # Create Widgets
-        self.btn = ttk.Button(self, text='Enter Values', command=self.openwindow)
-        self.S_label = ttk.Label(self,text=f"S = {str(S_var)}")
-
+        self.btn = ttk.Button(self, text='SUVAT Calc', command=self.openwindow)
         # Layout using grid
         self.btn.grid(row=0, column=0, sticky='ew')
-        self.S_label.grid(row=0, column = 0, sticky="n")
-
         # Padding
         for child in self.winfo_children():
             child.grid_configure(padx=10, pady=5)
