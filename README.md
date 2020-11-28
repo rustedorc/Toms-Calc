@@ -1,15 +1,12 @@
-# SUVAT (GUI Version)
+# SUVAT
 
 Simple SUVAT solver made in python to improve my own understanding of the topic
-
-This version is very much unfinished!
 
 ## Getting Started
 
 ### Dependencies
 
 * Python 3
-* Tkinter
 * Any OS
 
 ### Installing
@@ -19,6 +16,19 @@ This version is very much unfinished!
 
 ### Executing program
 
+#### Via GUI
+
+* Run gui.py in the console:
+```
+python3 GUI.py
+```
+OR
+```
+py gui.py
+```
+
+#### Via import
+
 * Type the following command into your python project or console:
 ```
 from Suvat import SUVAT
@@ -27,9 +37,9 @@ from Suvat import SUVAT
 ```
 Question1 = SUVAT(U=20,T=70,A=9.8)
 ```
-* Use the 'Find' function to automatically solve:
+* Use the 'Find' function to automatically solve all unknowns:
 ```
-Question1.Find("V")
+Question1.Find()
 ```
 * You can also manually enter the equations using the following functions:
 ```
@@ -39,8 +49,9 @@ instance_name.s_equals_ut_plus_half_at_squared()
 instance_name.s_equals_vt_minus_half_at_squared()
 instance_name.s_equals_half_u_plus_v_t()
 ```
--Please note that only the first and second functions have functionality to be rearanged-
 ## Help
+
+You must a minimum of 3 known values for this to find the two unknowns
 
 If you want any help or want to help improve this code feel free to message me.
 
@@ -56,6 +67,10 @@ Thomas Moldon
     * Initial Release
 * 0.2
     * Completed Find() function
+* 0.3
+    * Fully completed 'Suvat.py'
+* 0.4
+    * Implemented GUI
 
 ## License
 
